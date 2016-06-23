@@ -48,3 +48,12 @@ Receive message:
 ```
 /usr/local/lib/kafka/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 ```
+
+Send message with custom script:
+- Go to location `cd /command`
+- Write message body into `body.txt`
+- Run script ./send.sh
+
+```
+Tip: command folder is shared so you can edit body.txt in your native system.
+```
