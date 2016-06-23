@@ -14,6 +14,9 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--cpus", "2"]
   end
 
+  config.vm.synced_folder "./command", "/command",
+    id: "vagrant-root", type: "nfs", nfs_export: true
+
   config.vm.provision "shell",
     inline: "
         if ! type 'ansible-playbook' > /dev/null; then
