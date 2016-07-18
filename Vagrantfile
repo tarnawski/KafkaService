@@ -4,6 +4,10 @@ app_config = YAML::load_file("./.project_name.yml")['parameters'];
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.network :private_network, ip: "10.0.0.201"
+  config.vm.network :public_network
+  config.vm.network :forwarded_port, guest: 2181, host: 2181
+  config.vm.network :forwarded_port, guest: 9092, host: 9092
+
   config.ssh.forward_agent = true
 
   config.vm.provider :virtualbox do |v|
